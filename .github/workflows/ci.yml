@@ -44,9 +44,11 @@ jobs:
 
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+
+      - name: Show deployed URL
+        run: echo "Tu sitio quedó en ${{ steps.deployment.outputs.page_url }}"
